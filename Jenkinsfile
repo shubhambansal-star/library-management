@@ -9,13 +9,7 @@ pipeline {
 
             stage('Test') {
                 steps {
-                    sh 'python app/manage.py test'
-                }
-            }
-
-            stage('Deploy') {
-                steps {
-                    sh 'echo not yet...'
+                    sh 'python3 manage.py runserver 0.0.0.0:8000'
                 }
             }
         }
