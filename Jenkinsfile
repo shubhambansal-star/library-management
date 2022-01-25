@@ -1,8 +1,24 @@
+pipeline {
+        agent {
+            docker { image 'python:3.9' }
+        }
+        stages {
+            stage('Build') {
+                steps {
+                    sh 'pip install -r requirements.txt'
+                }
+            }
 
-node{
-  checkour scm
-  docker.withRegistry('https//registry.hub.docker.com','dockerHub'){
-    def customImage = docker.build("app")
-    customImage.push()
-  }
-}
+            stage('Test') {
+                steps {
+                    sh 'python app/manage.py test'
+                }
+            }
+
+            stage('Deploy') {
+                steps {
+                    sh 'echo not yet...'
+                }
+            }
+        }
+    }
