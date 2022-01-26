@@ -7,7 +7,7 @@ pipeline{
         sh 'python3 -m pip install virtualenv'
         sh 'python3 -m pip install -r requirements.txt'
         sh 'python3 manage.py test'
-        sh 'python3 manage.py runserver 0.0.0.0.:4000'
+        sh 'screen -d -m python3 manage.py runserver 0.0.0.0:4000'
         echo "build successfully"
       }
     }
