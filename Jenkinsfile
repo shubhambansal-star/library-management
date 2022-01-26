@@ -4,8 +4,8 @@ pipeline{
     stage("Build state"){
       steps{
         git branch: 'main', url: 'https://github.com/shubhambansal-star/library-management.git'
-        sh 'python --version'
-        sh 'python -m pip install -r requirements.txt'
+        sh 'python3 --version'
+        sh 'python3 -m pip install -r requirements.txt'
         echo "build successfully"
       }
     }
