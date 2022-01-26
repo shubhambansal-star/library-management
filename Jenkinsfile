@@ -6,11 +6,15 @@ pipeline {
                     sh 'pip install -r requirements.txt'
                 }
             }
-
-            stage('Test') {
-                steps {
-                    sh 'python3 manage.py test'
+            stage("test build"){
+                steps{
+                        sh 'python manage.py test'
+                }
+            }
+            stage("deploy app"){
+                steps{
+                        sh 'screen -d -m python manage.py runserver 0.0.0.0:5500'
                 }
             }
         }
-    }
+}
