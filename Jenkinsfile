@@ -20,6 +20,7 @@ pipeline{
       steps{
         sh 'pwd'
         sh 'cd'
+        sh 'ssh deployment-user@3.145.141.54'
         sh 'cd /home/ubuntu/library-management && source venv/bin/activate && pwd'
         echo 'done'
       }

@@ -5,7 +5,7 @@ from six import text_type
 # Create your models here.
 
 class UserManager(BaseUserManager):
-    def create_user(self, first_name,last_name,email,password, enrollment, is_admin):
+    def create_user(self, first_name,last_name,email,password, enrollment="", is_admin=True):
         if email is None:
             raise TypeError('Users must have an email address.')
 
