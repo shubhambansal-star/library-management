@@ -19,6 +19,9 @@ pipeline{
     stage("Deploy state"){
       steps{
         sh 'pwd'
+        sh 'cd'
+        sh 'cd /home/ubuntu/library-management'
+        echo 'done'
       }
     }
   }
