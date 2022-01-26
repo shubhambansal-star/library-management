@@ -21,6 +21,14 @@ pipeline{
         sh 'pwd'
         sh 'cd'
         sh 'cd /home/ubuntu/library-management'
+        sh 'git pull origin main'
+        sh 'source venv/bin/activate'
+        sh 'pip3 install -r requirements.txt --no-warn-script-location'
+        sh 'python3 manage.py makemigrations'
+        sh 'python3 manage.py migrate'
+        sh 'deactivate'
+        sh 'sudo systemctl restart nginx'
+        sh 'sudo systemctl restart gunicorn'
         echo 'done'
       }
     }
