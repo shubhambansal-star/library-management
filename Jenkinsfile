@@ -1,7 +1,20 @@
-node{
-  checkour scm
-  docker.withRegistry('https//registry.hub.docker.com','dockerHub'){
-    def customImage = docker.build("shubhban29/library")
-    customImage.push()
+pipeline{
+  agent any
+  stages{
+    stage("Build state"){
+      steps{
+        echo "build successfully"
+      }
+    }
+    stage("Test state"){
+      steps{
+        echo "test successfully"
+      }
+    }
+    stage("Deploy state"){
+      steps{
+        echo "deploy successfully"
+      }
+    }
   }
 }
