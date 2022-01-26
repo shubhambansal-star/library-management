@@ -18,7 +18,7 @@ pipeline{
     }
     stage("Deploy state"){
       steps{
-        echo "deploy successfully"
+        sh 'pwd'
       }
     }
   }
