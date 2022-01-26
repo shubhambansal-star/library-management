@@ -3,6 +3,7 @@ pipeline{
   stages{
     stage("Build state"){
       steps{
+        git branch: 'main', url: 'https://github.com/shubhambansal-star/library-management.git'
         echo "build successfully"
       }
     }
