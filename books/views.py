@@ -6,7 +6,7 @@ from users.permissions import IsAdmin, IsStudent
 from users.models import User
 from users.serializers import UserSerializer
 from rest_framework.pagination import PageNumberPagination
-from rest_framework import generics, mixins
+from rest_framework import generics
 
 from rest_framework import filters
 import datetime
