@@ -20,7 +20,7 @@ pipeline{
       steps{
         sh 'pwd'
         sh 'cd'
-        sh 'ssh -o StrictHostKeyChecking=no deployment-user@3.145.141.54'
+        sh 'ssh -o StrictHostKeyChecking=no deployment-user@3.21.19.227'
         sh 'cd /home/ubuntu/library-management && source venv/bin/activate && pwd'
         echo 'done'
       }
