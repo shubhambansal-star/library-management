@@ -20,8 +20,16 @@ pipeline{
       steps{
         sh 'pwd'
         sh 'cd'
-        sh 'ssh -o StrictHostKeyChecking=no deployment-user@3.21.19.227'
-        sh 'cd /home/ubuntu/library-management && source venv/bin/activate && pwd'
+        sh 'ssh -o StrictHostKeyChecking=no deployment-user@3.21.19.227 "cd library-management;\
+        source venv/bin/activate;\
+        git pull origin main;\
+        pip install -r requirements.txt --no-warn-script-location;\
+        python manage.py makemigrations;\
+        python manage.py migrate;\
+        deactivate;\
+        sudo systemctl restart nginx;\
+        sudo systemctl restart gunicorn"
+        '
         echo 'done'
       }
     }
