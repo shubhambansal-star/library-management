@@ -27,7 +27,8 @@ import FormXeditable from "../pages/Forms/FormXeditable"
 
 // //Extra Pages
 import PagesInvoice from "../pages/Extra Pages/pages-invoice"
-
+import AddBook from "../../src/pages/admin/books/addBook"
+import IssueBook from "../../src/pages/admin/books/IssueBook"
 //bills
 import BillForm from "../pages/bills/BillDetails"
 import BillToForm from "../pages/bills/BillTo"
@@ -37,11 +38,11 @@ import BillToList from "../pages/bills/BillToList"
 import BillList from "../pages/bills/BillList"
 import Dara from "../pages/bills/dara"
 const adminRoute = [
-  { path: "/book-add", component: PagesInvoice },
+  { path: "/book-add", component: AddBook },
   { path: "/book-list", component: PagesInvoice },
   { path: "/create-account", component: BillToForm },
   { path: "/user-list", component: BillByForm },
-  { path: "/issue-book", component: BillByList },
+  { path: "/issue-book", component: IssueBook },
   { path: "/dashboard", component: BillByList },
 ]
 const studentRoute = [

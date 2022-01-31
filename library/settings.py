@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,7 +65,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'frontend','build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,3 +155,33 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
     'USER_AUTHENTICATION_RULE': 'rest_framework_simplejwt.authentication.default_user_authentication_rule',
 }
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend','build','static'),
+]
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+REACT_ROUTES = [
+    'login',
+    'logout',
+    'bill',
+    'bill-list',
+    'bill-by',
+    'bill-by-list',
+    'bill-to',
+    'bill-to-list',
+    'book-add',
+    'book-list',
+    'create-account',
+    'user-list',
+    'issue-book',
+    'dashboard',
+    'issued-book',
+    'profile',
+    'list',
+]

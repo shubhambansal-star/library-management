@@ -6,6 +6,12 @@ import {
   loaderRequestAction,
 } from "../store/loading/actions"
 import { ERROR_SET, ERROR_UNSET } from "../store/error/actionTypes"
+import accessToken from "../helpers/jwt-token-access/accessToken"
+const config = {
+  headers: {
+    Authorization: "Bearer " + accessToken,
+  },
+}
 export function doGet(url, loading = false) {
   store.dispatch({
     type: ERROR_UNSET,
@@ -15,7 +21,7 @@ export function doGet(url, loading = false) {
   }
   return new Promise((resolve, reject) => {
     axios
-      .get(url)
+      .get(url, config)
       .then(response => {
         if (response.status === 200) {
           resolve(response)
@@ -55,7 +61,7 @@ export function doPost(url, data, loading = false) {
       store.dispatch(loaderRequestAction())
     }
     axios
-      .post(url, data)
+      .post(url, data, config)
       .then(response => {
         if (response.status === 201 || response.status === 200) {
           resolve(response)
@@ -99,7 +105,7 @@ export function doPut(url, data, loading = false) {
   }
   return new Promise((resolve, reject) => {
     axios
-      .put(url, data)
+      .put(url, data, config)
       .then(response => {
         if (response.status === 201 || response.status === 200) {
           resolve(response)
@@ -133,7 +139,7 @@ export function doPatch(url, data, loading = false) {
   }
   return new Promise((resolve, reject) => {
     axios
-      .patch(url, data)
+      .patch(url, data, config)
       .then(response => {
         if (response.status === 200 || response.status === 201) {
           resolve(response)
@@ -167,7 +173,7 @@ export function doDelete(url, data, loading = false) {
   }
   return new Promise((resolve, reject) => {
     axios
-      .delete(url)
+      .delete(url, config)
       .then(response => {
         if (response.status === 201) {
           resolve(response)

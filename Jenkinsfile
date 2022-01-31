@@ -26,6 +26,7 @@ pipeline{
         pip install -r requirements.txt --no-warn-script-location;\
         python manage.py makemigrations;\
         python manage.py migrate;\
+        python manage.py collectstatic;\
         deactivate;\
         sudo systemctl restart nginx;\
         sudo systemctl restart gunicorn"'

@@ -8,11 +8,8 @@ function* loginUser({ payload: { user, history } }) {
     if (process.env.REACT_APP_DEFAULTAUTH === "django") {
       const response = yield call(loginUsers, user)
       localStorage.setItem("authUser", JSON.stringify(response))
-      localStorage.setItem("token", JSON.stringify(response.data.access))
-      localStorage.setItem(
-        "refresh-token",
-        JSON.stringify(response.data.refresh)
-      )
+      localStorage.setItem("token", response.data.access)
+      localStorage.setItem("refresh-token", response.data.refresh)
       localStorage.setItem("email", JSON.stringify(response.data.email))
       if (response.data.admin === true) {
         localStorage.setItem("isAdmin", JSON.stringify(response.data.admin))

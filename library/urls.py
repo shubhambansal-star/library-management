@@ -18,7 +18,10 @@ from django.urls import path, include
 from .views import (
     MyTokenObtainPairView,
     TokenRefreshView,
+    index
 )
+from django.conf import settings
+from django.conf.urls.static import static
 
     
 urlpatterns = [
@@ -26,5 +29,12 @@ urlpatterns = [
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('',include("users.urls")),
-    path('',include("books.urls"))
-]
+    path('',include("books.urls")),
+    path('',index, name='index')
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+routes = getattr(settings, 'REACT_ROUTES', [])
+for route in routes:
+    urlpatterns += [
+        path('{}'.format(route),index, name="index" )
+    ]
