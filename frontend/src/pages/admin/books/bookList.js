@@ -4,10 +4,10 @@ import { MDBDataTableV5 } from "mdbreact"
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap"
 import { connect } from "react-redux"
 import { setBreadcrumbItems } from "../../../store/actions"
-import "./datatables.scss"
+import "../../bills/datatables.scss"
 import { doGet } from "../../../axios/restutils.js"
 
-const DatatableTables = props => {
+const BookList = props => {
   const breadcrumbItems = [
     { title: "Jaypee Group", link: "#" },
     { title: "Books", link: "#" },
@@ -87,9 +87,8 @@ const DatatableTables = props => {
           </Card>
         </Col>
       </Row>
-      {modalshow ? <ModelContent /> : null}
     </React.Fragment>
   )
 }
 
-export default connect(null, { setBreadcrumbItems })(DatatableTables)
+export default connect(null, { setBreadcrumbItems })(BookList)

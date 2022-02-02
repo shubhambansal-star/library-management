@@ -4,8 +4,7 @@ import { apiError, loginSuccess } from "./actions"
 import { loginUsers } from "../../../helpers/firebase_helper"
 function* loginUser({ payload: { user, history } }) {
   try {
-    console.log(1)
-    if (process.env.REACT_APP_DEFAULTAUTH === "django") {
+    
       const response = yield call(loginUsers, user)
       localStorage.setItem("authUser", JSON.stringify(response))
       localStorage.setItem("token", response.data.access)
@@ -16,7 +15,6 @@ function* loginUser({ payload: { user, history } }) {
       }
       yield put(loginSuccess(response))
       history.push("/")
-    }
   } catch (error) {
     yield put(apiError(error))
   }

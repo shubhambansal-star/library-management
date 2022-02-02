@@ -19,31 +19,16 @@ import LockScreen from "../pages/AuthenticationInner/auth-lock-screen"
 
 // Forms
 import FormElements from "../pages/Forms/FormElements"
-import FormAdvanced from "../pages/Forms/FormAdvanced"
-import FormEditors from "../pages/Forms/FormEditors"
-import FormValidations from "../pages/Forms/FormValidations"
-import FormUpload from "../pages/Forms/FormUpload"
-import FormXeditable from "../pages/Forms/FormXeditable"
-
-// //Extra Pages
-import PagesInvoice from "../pages/Extra Pages/pages-invoice"
 import AddBook from "../../src/pages/admin/books/addBook"
 import IssueBook from "../../src/pages/admin/books/IssueBook"
-//bills
-import BillForm from "../pages/bills/BillDetails"
-import BillToForm from "../pages/bills/BillTo"
-import BillByForm from "../pages/bills/BillBy"
-import BillByList from "../pages/bills/BillByList"
-import BillToList from "../pages/bills/BillToList"
-import BillList from "../pages/bills/BillList"
-import Dara from "../pages/bills/dara"
+import BookList from "../../src/pages/admin/books/bookList"
 const adminRoute = [
   { path: "/book-add", component: AddBook },
-  { path: "/book-list", component: PagesInvoice },
-  { path: "/create-account", component: BillToForm },
-  { path: "/user-list", component: BillByForm },
+  { path: "/book-list", component: BookList },
+  { path: "/create-account", component: AddBook },
+  { path: "/user-list", component: BookList },
   { path: "/issue-book", component: IssueBook },
-  { path: "/dashboard", component: BillByList },
+  { path: "/dashboard", component: BookList },
 ]
 const studentRoute = [
   { path: "/issued-book", component: Calendar },
